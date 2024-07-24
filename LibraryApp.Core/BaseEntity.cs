@@ -16,6 +16,7 @@ namespace LibraryApp.Core
         protected BaseEntity()
         {
             CreatedTime = DateTime.UtcNow;
+            IsActive = true;
         }
     }
 }
