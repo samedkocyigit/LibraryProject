@@ -1,4 +1,5 @@
-﻿using LibraryApp.DAL.Repositories.Abstract;
+﻿using LibraryApp.BLL.Services.Abstract;
+using LibraryApp.DAL.Repositories.Abstract;
 using LibraryApp.Domains.Models;
 using System;
 using System.Collections.Generic;
@@ -8,14 +9,13 @@ using System.Threading.Tasks;
 
 namespace LibraryApp.BLL.Services
 {
-    public class AddressService
+    public class AddressService:IAddressService
     {
-        private readonly IGenericRepository<Address> _addressRepository;
+        private readonly IAddressRepository _addressRepository;
 
-        public AddressService(IGenericRepository<Address> addressRepository)
+        public AddressService(IAddressRepository addressRepository)
         {
-            _addressRepository = addressRepository;
-            
+            _addressRepository = addressRepository;           
         }
 
         public IEnumerable<Address> GetAllAddresses() 

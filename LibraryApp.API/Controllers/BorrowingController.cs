@@ -1,4 +1,4 @@
-﻿using LibraryApp.BLL.Services;
+﻿using LibraryApp.BLL.Services.Abstract;
 using LibraryApp.Domains.Models;
 using System.Collections.Generic;
 using System.Net;
@@ -8,9 +8,9 @@ namespace LibraryApp.API.Controllers
 {
     public class BorrowingController : ApiController
     {
-        private readonly BorrowingService _borrowingService;
+        private readonly IBorrowingService _borrowingService;
 
-        public BorrowingController(BorrowingService borrowingService)
+        public BorrowingController(IBorrowingService borrowingService)
         {
             _borrowingService = borrowingService;
         }
@@ -19,6 +19,38 @@ namespace LibraryApp.API.Controllers
         public IEnumerable<Borrowing> GetAllBorrowings()
         {
             return _borrowingService.GetAllBorrowings();
+        }
+
+        [HttpPost]
+        [Route("api/borrowing/borrow")]
+        public IHttpActionResult BorrowBook([FromBody] BorrowBookModel model)
+        {
+            _borrowingService.BorrowBook(model.MemberId,model.BookId);
+            return Ok("Book borrowed Successfully");
+        }
+
+        [HttpPost]
+        [Route("api/borrowing/return")]
+        public IHttpActionResult ReturnBook([FromBody] ReturnBookModel model)
+        {
+            _borrowingService.ReturnBook(model.MemberId, model.BookId);
+            return Ok("Book returned Successfully");
+        }
+
+        [HttpGet]
+        [Route("member/{memberId}")]
+        public IHttpActionResult GetBorrowingsByMember(int memberId)
+        {
+            var borrowings = _borrowingService.GetBorrowingsByMember(memberId);
+            return Ok(borrowings);
+        }
+
+        [HttpGet]
+        [Route("book/{bookId}")]
+        public IHttpActionResult GetBorrowingsByBook(int bookId)
+        {
+            var borrowings = _borrowingService.GetBorrowingsByBook(bookId);
+            return Ok(borrowings);
         }
 
         [HttpGet]
@@ -68,4 +100,15 @@ namespace LibraryApp.API.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
     }
+    public class BorrowBookModel
+    {
+        public int MemberId { get; set; }
+        public int BookId { get; set; }
+    }
+    public class ReturnBookModel
+    {
+        public int MemberId { get; set; }
+        public int BookId { get; set; }
+    }
+
 }

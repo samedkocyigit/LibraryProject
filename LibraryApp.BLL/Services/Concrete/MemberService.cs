@@ -1,4 +1,5 @@
-﻿using LibraryApp.DAL.Repositories.Abstract;
+﻿using LibraryApp.BLL.Services.Abstract;
+using LibraryApp.DAL.Repositories.Abstract;
 using LibraryApp.Domains.Models;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace LibraryApp.BLL.Services
 {
-    public class MemberService
+    public class MemberService:IMemberService
     {
-        private readonly IGenericRepository<Member> _memberRepository;
-        public MemberService(IGenericRepository<Member> memberRepository)
+        private readonly IMemberRepository _memberRepository;
+        public MemberService(IMemberRepository memberRepository)
         {
             _memberRepository = memberRepository;
         }
@@ -23,6 +24,11 @@ namespace LibraryApp.BLL.Services
         public Member GetMemberById(int id)
         {
             return _memberRepository.GetById(id);
+        }
+        public Member ValidateUser(string username,string password)
+        {
+            return _memberRepository.GetAll()
+                                           .FirstOrDefault(m => m.Username == username && m.Password == password);
         }
         public void AddMember(Member member)
         {
@@ -40,7 +46,10 @@ namespace LibraryApp.BLL.Services
                 _memberRepository.Delete(member);
             }
         }
-
-
+        public Member Authenticate(string username, string password)
+        {
+            var member = _memberRepository.GetAll().FirstOrDefault(m => m.Username == username && m.Password == password);
+            return member;
+        }
     }
 }

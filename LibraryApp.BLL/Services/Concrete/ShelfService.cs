@@ -1,4 +1,5 @@
-﻿using LibraryApp.DAL.Repositories.Abstract;
+﻿using LibraryApp.BLL.Services.Abstract;
+using LibraryApp.DAL.Repositories.Abstract;
 using LibraryApp.Domains.Models;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace LibraryApp.BLL.Services
 {
-    public class ShelfService
+    public class ShelfService:IShelfService
     {
-        private readonly IGenericRepository<Shelf> _shelfRepository;
-        public ShelfService(IGenericRepository<Shelf> shelfRepository) 
+        private readonly IShelfRepository _shelfRepository;
+        public ShelfService(IShelfRepository shelfRepository) 
         {
             _shelfRepository = shelfRepository;
         }

@@ -1,4 +1,4 @@
-﻿using LibraryApp.BLL.Services;
+﻿using LibraryApp.BLL.Services.Abstract;
 using LibraryApp.Domains.Models;
 using System.Collections.Generic;
 using System.Net;
@@ -8,9 +8,9 @@ namespace LibraryApp.API.Controllers
 {
     public class MemberController : ApiController
     {
-        private readonly MemberService _memberService;
+        private readonly IMemberService _memberService;
 
-        public MemberController(MemberService memberService)
+        public MemberController(IMemberService memberService)
         {
             _memberService = memberService;
         }

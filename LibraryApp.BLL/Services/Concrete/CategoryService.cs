@@ -1,4 +1,5 @@
-﻿using LibraryApp.DAL.Repositories.Abstract;
+﻿using LibraryApp.BLL.Services.Abstract;
+using LibraryApp.DAL.Repositories.Abstract;
 using LibraryApp.Domains.Models;
 using System;
 using System.Collections.Generic;
@@ -8,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace LibraryApp.BLL.Services
 {
-    public class CategoryService
+    public class CategoryService:ICategoryService
     {
-        private readonly IGenericRepository<Category> _categoryRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public CategoryService(IGenericRepository<Category> categoryRepository)
+        public CategoryService(ICategoryRepository categoryRepository)
         {
             _categoryRepository = categoryRepository;
         }

@@ -1,4 +1,4 @@
-﻿using LibraryApp.BLL.Services;
+﻿using LibraryApp.BLL.Services.Abstract;
 using LibraryApp.Domains.Models;
 using System.Collections.Generic;
 using System.Net;
@@ -8,9 +8,9 @@ namespace LibraryApp.API.Controllers
 {
     public class ShelfController : ApiController
     {
-        private readonly ShelfService _shelfService;
+        private readonly IShelfService _shelfService;
 
-        public ShelfController(ShelfService shelfService)
+        public ShelfController(IShelfService shelfService)
         {
             _shelfService = shelfService;
         }
