@@ -1,4 +1,4 @@
-﻿using LibraryApp.BLL.Services;
+﻿using LibraryApp.BLL.Services.Abstract;
 using LibraryApp.Domains.Models;
 using System.Collections.Generic;
 using System.Net;
@@ -8,9 +8,9 @@ namespace LibraryApp.API.Controllers
 {
     public class FloorController : ApiController
     {
-        private readonly FloorService _floorService;
+        private readonly IFloorService _floorService;
 
-        public FloorController(FloorService floorService)
+        public FloorController(IFloorService floorService)
         {
             _floorService = floorService;
         }

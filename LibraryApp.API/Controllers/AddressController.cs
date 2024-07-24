@@ -1,4 +1,4 @@
-﻿using LibraryApp.BLL.Services;
+﻿using LibraryApp.BLL.Services.Abstract;
 using LibraryApp.Domains.Models;
 using System.Collections.Generic;
 using System.Net;
@@ -8,9 +8,9 @@ namespace LibraryApp.API.Controllers
 {
     public class AddressController : ApiController
     {
-        private readonly AddressService _addressService;
+        private readonly IAddressService _addressService;
 
-        public AddressController(AddressService addressService)
+        public AddressController(IAddressService addressService)
         {
             _addressService = addressService;
         }

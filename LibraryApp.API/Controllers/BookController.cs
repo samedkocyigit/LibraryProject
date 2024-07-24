@@ -1,16 +1,18 @@
-﻿using LibraryApp.BLL.Services;
+﻿using LibraryApp.BLL.Services.Abstract;
 using LibraryApp.Domains.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Web.Http;
+using System.Web.Http.Filters;
 
 namespace LibraryApp.API.Controllers
 {
     public class BookController : ApiController
     {
-        private readonly BookService _bookService;
+        private readonly IBookService _bookService;
 
-        public BookController(BookService bookService)
+        public BookController(IBookService bookService)
         {
             _bookService = bookService;
         }
@@ -25,6 +27,40 @@ namespace LibraryApp.API.Controllers
         public IHttpActionResult GetBookById(int id)
         {
             var book = _bookService.GetBookById(id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+            return Ok(book);
+        }
+        [HttpGet]
+        [Route("api/book/floor/{floorId}")]
+        public IHttpActionResult GetBooksByFloor(int floorId)
+        {
+            var books = _bookService.GetBooksByFloor(floorId);
+            if (books == null || !books.Any())
+            {
+                return NotFound();
+            }
+            return Ok(books);
+        }
+        [HttpGet]
+        [Route("api/book/category/{categoryId}")]
+        public IHttpActionResult GetBooksByCategory(int categoryId)
+        {
+            var books = _bookService.GetBooksByCategory(categoryId);
+            if (books==null || !books.Any())
+            {
+                return NotFound();
+
+            }
+            return Ok(books);
+        }
+        [HttpGet]
+        [Route("api/book/title/{title}")]
+        public IHttpActionResult GetBookByTitle(string title)
+        {
+            var book = _bookService.GetBookByTitle(title);
             if (book == null)
             {
                 return NotFound();
