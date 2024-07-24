@@ -10,9 +10,10 @@ namespace LibraryApp.Domains.Models
     public class Address:BaseEntity
     {
         public int AddressId { get; set; }
-        public string Street { get; set; }
         public string City { get; set; }
-        public string State { get; set; }
+        public string District { get; set; }
+        public string Neighborhood { get; set; }
+        public string AddressText { get; set; }
         public string PostalCode { get; set; }
         public ICollection<Member> Members { get; set; }
     }
