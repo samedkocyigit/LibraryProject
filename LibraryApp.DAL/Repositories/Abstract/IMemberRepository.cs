@@ -7,12 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryApp.DAL.Repositories.Abstract
 {
-    public interface GenericRepository<T> where T : class
+    public interface IMemberRepository:GenericRepository<Member>
     {
-        IEnumerable<T> GetAll();
-        T GetById(int id);
-        void Insert (T entity);
-        void Update(T entity);
-        void Delete(T entity);
     }
 }
