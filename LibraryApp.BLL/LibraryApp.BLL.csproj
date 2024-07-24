@@ -88,14 +88,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\AddressService.cs" />
-    <Compile Include="Services\AuthorService.cs" />
-    <Compile Include="Services\BookService.cs" />
-    <Compile Include="Services\BorrowingService.cs" />
-    <Compile Include="Services\CategoryService.cs" />
-    <Compile Include="Services\FloorService.cs" />
-    <Compile Include="Services\MemberService.cs" />
-    <Compile Include="Services\ShelfService.cs" />
+    <Compile Include="Services\Abstract\IAuthorService.cs" />
+    <Compile Include="Services\Abstract\IShelfService.cs" />
+    <Compile Include="Services\Abstract\IMemberService.cs" />
+    <Compile Include="Services\Abstract\IFloorService.cs" />
+    <Compile Include="Services\Abstract\ICategoryService.cs" />
+    <Compile Include="Services\Abstract\IBorrowingService.cs" />
+    <Compile Include="Services\Abstract\IAddressService.cs" />
+    <Compile Include="Services\Abstract\IBookService.cs" />
+    <Compile Include="Services\Concrete\AddressService.cs" />
+    <Compile Include="Services\Concrete\AuthorService.cs" />
+    <Compile Include="Services\Concrete\BookService.cs" />
+    <Compile Include="Services\Concrete\BorrowingService.cs" />
+    <Compile Include="Services\Concrete\CategoryService.cs" />
+    <Compile Include="Services\Concrete\FloorService.cs" />
+    <Compile Include="Services\Concrete\MemberService.cs" />
+    <Compile Include="Services\Concrete\ShelfService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibraryApp.Core\LibraryApp.Core.csproj">

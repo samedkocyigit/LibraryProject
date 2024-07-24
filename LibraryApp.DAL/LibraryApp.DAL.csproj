@@ -92,16 +92,68 @@
     <Compile Include="Migrations\202407162118043_InitialCreate.Designer.cs">
       <DependentUpon>202407162118043_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202407212002147_UpdateDatabase.cs" />
+    <Compile Include="Migrations\202407212002147_UpdateDatabase.Designer.cs">
+      <DependentUpon>202407212002147_UpdateDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202407220842595_AddMemberRole.cs" />
+    <Compile Include="Migrations\202407220842595_AddMemberRole.Designer.cs">
+      <DependentUpon>202407220842595_AddMemberRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202407220943018_UpdateAuthor.cs" />
+    <Compile Include="Migrations\202407220943018_UpdateAuthor.Designer.cs">
+      <DependentUpon>202407220943018_UpdateAuthor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202407220953451_UpdateBook.cs" />
+    <Compile Include="Migrations\202407220953451_UpdateBook.Designer.cs">
+      <DependentUpon>202407220953451_UpdateBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202407231418461_UpdateBookandAuthor.cs" />
+    <Compile Include="Migrations\202407231418461_UpdateBookandAuthor.Designer.cs">
+      <DependentUpon>202407231418461_UpdateBookandAuthor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202407241232338_UpdateAddressModel.cs" />
+    <Compile Include="Migrations\202407241232338_UpdateAddressModel.Designer.cs">
+      <DependentUpon>202407241232338_UpdateAddressModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202407241255188_UpdateMember.cs" />
+    <Compile Include="Migrations\202407241255188_UpdateMember.Designer.cs">
+      <DependentUpon>202407241255188_UpdateMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202407241740078_UpdateBook1.cs" />
+    <Compile Include="Migrations\202407241740078_UpdateBook1.Designer.cs">
+      <DependentUpon>202407241740078_UpdateBook1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Abstract\IAuthorRepository.cs" />
+    <Compile Include="Repositories\Abstract\IAddressRepository.cs" />
+    <Compile Include="Repositories\Abstract\IBookRepository.cs" />
+    <Compile Include="Repositories\Abstract\IBorrowingRepository.cs" />
+    <Compile Include="Repositories\Abstract\ICategoryRepository.cs" />
+    <Compile Include="Repositories\Abstract\IFloorRepository.cs" />
     <Compile Include="Repositories\Abstract\IGenericRepository.cs" />
+    <Compile Include="Repositories\Abstract\IMemberRepository.cs" />
+    <Compile Include="Repositories\Abstract\IShelfRepository.cs" />
+    <Compile Include="Repositories\Concrete\AuthorRepository.cs" />
+    <Compile Include="Repositories\Concrete\BookRepository.cs" />
     <Compile Include="Repositories\Concrete\GenericRepository.cs" />
+    <Compile Include="Repositories\Concrete\AddressRepository.cs" />
+    <Compile Include="Repositories\Concrete\BorrowingRepository.cs" />
+    <Compile Include="Repositories\Concrete\CategoryRepository.cs" />
+    <Compile Include="Repositories\Concrete\FloorRepository.cs" />
+    <Compile Include="Repositories\Concrete\MemberRepository.cs" />
+    <Compile Include="Repositories\Concrete\ShelfRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LibraryApp.Core\LibraryApp.Core.csproj">
+      <Project>{A0C74F9D-60E2-4F34-807F-7518BEACFC66}</Project>
+      <Name>LibraryApp.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LibraryApp.Domains\LibraryApp.Domains.csproj">
       <Project>{b9ceff07-0363-4217-b484-eb3f1cc5e1a8}</Project>
       <Name>LibraryApp.Domains</Name>
@@ -110,6 +162,30 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202407162118043_InitialCreate.resx">
       <DependentUpon>202407162118043_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407212002147_UpdateDatabase.resx">
+      <DependentUpon>202407212002147_UpdateDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407220842595_AddMemberRole.resx">
+      <DependentUpon>202407220842595_AddMemberRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407220943018_UpdateAuthor.resx">
+      <DependentUpon>202407220943018_UpdateAuthor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407220953451_UpdateBook.resx">
+      <DependentUpon>202407220953451_UpdateBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407231418461_UpdateBookandAuthor.resx">
+      <DependentUpon>202407231418461_UpdateBookandAuthor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407241232338_UpdateAddressModel.resx">
+      <DependentUpon>202407241232338_UpdateAddressModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407241255188_UpdateMember.resx">
+      <DependentUpon>202407241255188_UpdateMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407241740078_UpdateBook1.resx">
+      <DependentUpon>202407241740078_UpdateBook1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
