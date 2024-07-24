@@ -1,4 +1,5 @@
 ﻿using LibraryApp.DAL.Repositories.Abstract;
+using LibraryApp.Domains.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LibraryApp.DAL.Repositories.Concrete
 {
-    public class GenericRepository<T>:IGenericRepository<T> where T : class
+    public class GenericRepository<T> : Abstract.GenericRepository<T> where T : class
     {
         private readonly LibraryContext _context;
         private readonly DbSet<T> _dbSet;
@@ -50,7 +51,6 @@ namespace LibraryApp.DAL.Repositories.Concrete
 
             _dbSet.Remove(entity);
             _context.SaveChanges();
-        }
-
+        } 
     }
 }
